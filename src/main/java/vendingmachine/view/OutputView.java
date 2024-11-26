@@ -8,6 +8,8 @@ public class OutputView {
     private static final String HAVING_COIN_MESSAGE = "\n자판기가 보유한 동전";
     private static final String ORDER_MESSAGE = "\n상품명과 가격, 수량을 입력해 주세요.";
     private static final String PURCHASING_MONEY_MESSAGE = "\n투입 금액을 입력해 주세요.";
+    private static final String PURCHASING_MONEY = "\n투입 금액: %d원";
+    private static final String PURCHASING_ITEM_MASSAGE = "구매할 상품명을 입력해 주세요.";
     private static final String printForm = "%d원 -  %d개";
 
     public static void printHavingMoneyMessage() {
@@ -27,5 +29,13 @@ public class OutputView {
 
     public static void printPurchasingMoneyMessage() {
         System.out.println(PURCHASING_MONEY_MESSAGE);
+    }
+
+    public static void printPurchasingMoney(int money) {
+        System.out.println(String.format(PURCHASING_MONEY, money));
+    }
+
+    public static void printPurchasingItemMessage() {
+        System.out.println(PURCHASING_ITEM_MASSAGE);
     }
 }
