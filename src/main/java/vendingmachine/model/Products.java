@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Products {
 
-    private List<Product> products;
+    private static List<Product> products;
 
     public Products(List<Product> productList) {
         this.products = productList;
@@ -14,7 +14,7 @@ public class Products {
         return products;
     }
 
-    public Product getProductByName(String name) {
+    public static Product getProductByName(String name) {
         return products.stream().filter(product -> product.getName().equals(name)).findFirst()
             .orElse(null);
     }
