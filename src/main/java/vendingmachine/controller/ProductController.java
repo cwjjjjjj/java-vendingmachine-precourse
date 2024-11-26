@@ -34,4 +34,14 @@ public class ProductController {
         }
         return new Products(productList);
     }
+
+    public static boolean validateEmptyStock(Products products) {
+        //재고가 하나라도 있으면 진행 가능
+        return products.getProducts().stream().anyMatch(product -> product.getStock() > 0);
+    }
+
+    public static int minPrice(Products products) {
+        return products.getProducts().stream().mapToInt(Product::getPrice).min()
+            .orElse(Integer.MAX_VALUE);
+    }
 }
