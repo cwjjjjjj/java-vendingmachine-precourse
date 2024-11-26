@@ -1,7 +1,7 @@
 package vendingmachine.controller;
 
 import static camp.nextstep.edu.missionutils.Randoms.pickNumberInList;
-import static vendingmachine.view.InputView.input;
+import static vendingmachine.view.InputView.inputInteger;
 import static vendingmachine.view.OutputView.printCoins;
 import static vendingmachine.view.OutputView.printHavingMoneyMessage;
 
@@ -14,12 +14,12 @@ public class CoinController {
     private static final int size = Coin.values().length;
     private static int[] coins = new int[size];
 
-    public void initMoney() {
+    public int[] initMoney() {
         printHavingMoneyMessage();
-        initCoins(Integer.parseInt(input()));
+        return initCoins(inputInteger());
     }
 
-    public void initCoins(int total) {
+    private int[] initCoins(int total) {
         Coin[] coinType = Coin.values();
         int index = 0;
         while (total > 0) {
@@ -49,6 +49,7 @@ public class CoinController {
         }
         //보유 금액만큼 동전 생성 후 출력
         printCoins(coins);
+        return coins;
     }
 
     private static List<Integer> makeNumberRange(int possibleCoin) {
